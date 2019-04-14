@@ -89,3 +89,32 @@ create table read_up_to(
 	foreign key (record_id) references Readers_read_records(record_id)	
 
 	);
+	
+alter table Stories add story_name varchar(100);
+
+create table Subscriptions(
+         id int primary key auto_increment,
+	 user_name varchar(30),
+	 story id int ,
+	 foreign key(user_name) references users(usersname),
+	 foreign key(story_id) refrences Stories(story_id)
+	);
+	
+create table to_read(
+	 id int primary key auto_increment,
+	 user_name varchar(30),
+	 story_id int,
+	 foreign key (user_name) references users(username),
+	 foreign key (story_id) references Stories(story_id)
+	);
+	
+	
+create table dropped(
+	 id int primary key auto_increment,
+	 user_name varchar(30),
+	 droptime datetime,
+	 foreign key (user_name) references users(username),
+	 foreign key (story_id) references Stories(story_id)
+	);
+	 
+
